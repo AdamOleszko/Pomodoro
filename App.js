@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, Text, View, TouchableOpacity} from 'react-native';
 import Styles from './components/StyleSheet';
-
+import Counter from './components/Counter';
 
 export default class App extends Component {
 constructor(props) {
@@ -103,7 +103,7 @@ decrement = () => {
         <Text style={Styles.title}>The Best{'\n'}Pomodoro App</Text>
         </View>
         <Text style={Styles.subtitle}>{this.state.text}</Text>
-        <Text style={Styles.counter}>{('0' + this.state.minutes).slice(-2)}:{('0' + this.state.count).slice(-2)}</Text>
+        <Counter count={this.state.count} minutes={this.state.minutes}/>
         <View style={Styles.breakButtons}>
           <TouchableOpacity style={this.state.breakButtons ? Styles.disabledBreakButton :Styles.breakButton} disabled={this.state.breakButtons} onPress={() => this.startShortBreak()}><Text style={Styles.buttonLabel}>SHORT BREAK{'\n'}(5 min)</Text></TouchableOpacity>
           <TouchableOpacity style={this.state.breakButtons ? Styles.disabledBreakButton :Styles.breakButton} disabled={this.state.breakButtons} onPress={() => this.startLongBreak()}><Text style={Styles.buttonLabel}>LONG BREAK(10 min)</Text></TouchableOpacity>
